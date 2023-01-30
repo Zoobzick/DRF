@@ -15,6 +15,9 @@ class Projects(models.Model):
     )
     users = models.ManyToManyField(CustomUser)
 
+    def __str__(self):
+        return self.name
+
 
 class Todo(models.Model):
     project_id = models.ForeignKey(Projects, on_delete=models.CASCADE)
@@ -27,3 +30,7 @@ class Todo(models.Model):
     user = models.ForeignKey(
         CustomUser, on_delete=models.SET_DEFAULT, default="inactive_user")
     is_active = models.BooleanField(default=True)
+
+    def delete(self, *args):
+        self.is_active = False
+        self.save()
