@@ -1,12 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Menu() {
     return (
-        <div className='menu'>
-            <ul style={{ listStyleType: "none" }}>
-                <li>Menu</li>
+        <nav>
+            <ul>
+                <li>
+                    <Link to='/projects'>projects</Link>
+                </li>
+                <li>
+                    <Link to='/todo'>todo_list</Link>
+                </li>
+                <li>
+                    <Link to='/'>users</Link>
+                </li>
             </ul>
-        </div>
+        </nav>
     )
 }
 
