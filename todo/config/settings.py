@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "users",
     "todo_app",
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -131,9 +132,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "users.CustomUser"
 
-CORS_ALLOWED_ORIGINS = ["http://192.168.0.20:3000","http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = ["http://192.168.0.20:3000", "http://localhost:3000"]
 
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100
+    'PAGE_SIZE': 100,
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissions', 'rest_framework.permissions.IsAuthenticated'],
 }
