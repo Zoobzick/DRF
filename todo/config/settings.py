@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "users",
     "todo_app",
     'rest_framework.authtoken',
+    'mixer'
 ]
 
 MIDDLEWARE = [
