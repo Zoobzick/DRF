@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "todo_app",
     'rest_framework.authtoken',
     'mixer',
-    'drf_yasg'
+    'drf_yasg',
+    "graphene_django"
 ]
 
 MIDDLEWARE = [
@@ -146,4 +147,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100,
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.DjangoModelPermissions', 'rest_framework.permissions.IsAuthenticated'],
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
+}
+
+GRAPHENE = {
+    "SCHEMA": "config.schema.schema"
 }
